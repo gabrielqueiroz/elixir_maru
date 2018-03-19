@@ -6,7 +6,7 @@ defmodule ElixirMaru do
    json_decoder: Poison,
    parsers: [:urlencoded, :json, :multipart]
 
- mount MyAPP.Router.Homepage
+ mount ElixirMaru.Router.Status
 
  rescue_from :all do
    conn
