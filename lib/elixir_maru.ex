@@ -1,18 +1,16 @@
 defmodule ElixirMaru do
-  @moduledoc """
-  Documentation for ElixirMaru.
-  """
+ use Maru.Router
 
-  @doc """
-  Hello world.
+ plug Plug.Parsers,
+   pass: ["*/*"],
+   json_decoder: Poison,
+   parsers: [:urlencoded, :json, :multipart]
 
-  ## Examples
+ mount MyAPP.Router.Homepage
 
-      iex> ElixirMaru.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
+ rescue_from :all do
+   conn
+   |> put_status(500)
+   |> text("Server Error")
+ end
 end
