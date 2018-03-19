@@ -28,6 +28,6 @@ defmodule ElixirMaru.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [ {:maru, "~> 0.11"} ]
   end
 end
