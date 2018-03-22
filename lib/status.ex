@@ -1,7 +1,9 @@
 defmodule ElixirMaru.Router.Status do
-   use Maru.Router
+  use Maru.Router
+  require Logger
 
-   get do
-     json(conn, %{ hello: :world })
-   end
+  get "/status" do
+    Logger.info("Getting status :: OK")
+    json(conn, %{ status: :ok })
+  end
  end
