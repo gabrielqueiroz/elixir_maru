@@ -1,6 +1,6 @@
 defmodule ElixirMaru.Router.StatusTest do
-  use Maru.Test
   use ExUnit.Case
+  use Maru.Test
 
   test "/status" do
     assert %{"status" => "ok"} = get("/status") |> json_response
